@@ -162,6 +162,13 @@ template(`sudo_role_template',`
 	# allow forwarding signals to the child process
 	userdom_signal_all_users($1_sudo_t)
 
+	optional_policy(`
+		gen_require(`
+			attribute screen_domain;
+		')
+		allow $1_sudo_t screen_domain:process signal;
+	')
+
 	tunable_policy(`allow_polyinstantiation',`
 		allow $1_sudo_t self:capability sys_admin;
 		fs_mount_xattr_fs($1_sudo_t)
