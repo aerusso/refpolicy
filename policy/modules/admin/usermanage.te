@@ -87,6 +87,7 @@ kernel_read_system_state(chfn_t)
 kernel_read_kernel_sysctls(chfn_t)
 
 selinux_get_fs_mount(chfn_t)
+selinux_use_status_page(chfn_t)
 selinux_validate_context(chfn_t)
 selinux_compute_access_vector(chfn_t)
 selinux_compute_create_context(chfn_t)
@@ -104,6 +105,7 @@ dev_read_urand(chfn_t)
 
 auth_run_chk_passwd(chfn_t, chfn_roles)
 auth_dontaudit_read_shadow(chfn_t)
+auth_rw_shadow_lock(chfn_t)
 auth_use_nsswitch(chfn_t)
 
 # allow checking if a shell is executable
@@ -125,6 +127,7 @@ miscfiles_read_localization(chfn_t)
 logging_send_syslog_msg(chfn_t)
 
 seutil_read_file_contexts(chfn_t)
+seutil_read_config(chfn_t)
 
 userdom_use_unpriv_users_fds(chfn_t)
 # user generally runs this from their home directory, so do not audit a search
